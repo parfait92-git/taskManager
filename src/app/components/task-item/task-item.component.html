@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{task.name}}</h5>
+    <p class="card-text">{{task.description}}</p>
+    <p class="card-text">Priorité : <span class="text-primary">Haute</span></p>
+    <p class="card-text">Date : <span class="text-muted">{{formatDate(task.createdAt)}} </span></p>
+
+  </div>
+  <div class="card-footer">
+    <div class="d-flex d-flex justify-content-between align-items-center float-end ">
+      <div class="mr-2">
+        <button type="button" (click)="deleteTask()" class="btn btn-danger mr-2">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+      <div class="ml-2">
+        <button type="button" (click)="editTask(myModalTemplate, task)" data-bs-toggle="modal" data-bs-target="#editTask" class="btn btn-primary ml-2">
+          <i class="fas fa-edit"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

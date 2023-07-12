@@ -1,0 +1,22 @@
+<app-header [userId]="userId" ></app-header>
+<div class="background-image vh-100">
+  <!-- <app-chart-art></app-chart-art> -->
+  <div class="row">
+    <div class="col col-md-3 p-2">
+      <app-tasks-list (taskEmit)="getSelectedTask($event)" [tasks]="taskList" [myModalTemplate]="myModalTemplate" [uid]="userId"></app-tasks-list>
+    </div>
+    <div class="d-flex col col-md-9 justify-content-center align-items-center vh-100">
+      <div class="card custom-card" style="width: 50vw">
+        <img src="../../../assets/images/fond1.jpg" class="card-img-top" alt="Image de la carte">
+        <div class="card-body">
+          <h5 class="card-title">Titre de la carte</h5>
+          <p class="card-text">Contenu de la carte.</p>
+          <a href="#" class="btn btn-primary">Bouton</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #myModalTemplate></ng-template>
+  <app-addtask  (getNewTaskList)="getNewTasks($event)" [uid]="userId"></app-addtask>
+  <app-update-task [task]="task" (getNewTaskList)="getNewTasks($event)" [uid]="userId"></app-update-task>
+</div>

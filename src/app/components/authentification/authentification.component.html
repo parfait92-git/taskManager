@@ -1,0 +1,15 @@
+<div class="conatainer background-image">
+  <div class="showLoading" *ngIf="showLoading === true">
+    <app-loader></app-loader>
+  </div>
+  <main class="d-flex justify-content-center align-items-center vh-100">
+      <div class="form-content">
+        <div *ngIf="showDefaultComponent===1" class="login">
+          <app-login [accountCreated]="accountCreated" (eventVal)="getValueFromChild($event)" (eventLoader)="shouldLoade($event)"></app-login>
+        </div>
+        <div *ngIf="showDefaultComponent===2" class="register">
+          <app-register (accountCreatedEvent)="accountCreatedEvent($event)" (eventVal)="getValueFromChild($event)" (eventLoader)="shouldLoade($event)" ></app-register>
+        </div>
+      </div>
+  </main>
+</div>

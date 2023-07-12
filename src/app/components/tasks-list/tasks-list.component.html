@@ -1,0 +1,23 @@
+<div class="card vh-100">
+  <div class="card-header">
+    <div class="card-title float-start">Mes taches</div>
+    <button (click)="openModal(myModalTemplate)" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-primary float-end">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+  <div class="card-body">
+    <article *ngFor="let item of tasks">
+      <app-task-item [myModalTemplate]="myModalTemplate" (taskEmit)="getTask($event)" (getNewTaskList)="getNewTask($event)" [uid]="uid" [task]="item"></app-task-item>
+    </article>
+  </div>
+  <div class="card-footer">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item" [class.active]="currentPage === page" *ngFor="let page of getTotalPages()">
+          <a class="page-link" (click)="setCurrentPage(page, uid)" role="button">{{ page }}</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</div>
